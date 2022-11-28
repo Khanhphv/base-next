@@ -1,6 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import CssBaseline from '@mui/material/CssBaseline';
+import ColorModeProvider from '../src/components/color-mode-context';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function Root({ Component, pageProps }) {
+  const getLayout = Component.getLayout || (page => page);
+  return (
+    <ColorModeProvider>
+      <div>
+        <CssBaseline />
+        {getLayout(<Component {...pageProps} />)}
+      </div>
+    </ColorModeProvider>
+  );
 }
+export default Root;
