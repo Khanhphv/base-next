@@ -5,10 +5,8 @@ function Root({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page);
   return (
     <ColorModeProvider>
-      <div>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </div>
+      <CssBaseline />
+      {getLayout(<Component {...pageProps} />)}
     </ColorModeProvider>
   );
 }

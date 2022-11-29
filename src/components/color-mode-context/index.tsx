@@ -22,6 +22,18 @@ const ColorModeProvider = ({ children }) => {
         palette: {
           mode,
         },
+        components: {
+          MuiInputBase: {
+            styleOverrides: {
+              input: {
+                '&:-webkit-autofill': {
+                  // fix big problem mui text box https://github.com/mui/material-ui/issues/14427
+                  transitionDelay: '9999999s',
+                },
+              },
+            },
+          },
+        },
       }),
     [mode]
   );
